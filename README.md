@@ -2,6 +2,9 @@
 
 BIGSS Handeye Calibration Tools
 
+### [bigss_ndi_tracker](/bigss_ndi_tracker/)
+BIGSS NDI Polaris configuration and ROM files
+
 ### [easy_handeye2](/easy_handeye2/)
 ROS2 version of [IFL-CAMP/easy_handeye](https://github.com/IFL-CAMP/easy_handeye)
 
@@ -10,6 +13,3 @@ ROS2 easy_handeye messages
 
 ### [handeye_calib_python](/handeye_calibration_python/)
 Python-based handeye calibration too
-
-### [bigss_ndi_tracker](/bigss_ndi_tacker/)
-BIGSS NDI Polaris configuration and ROM files
