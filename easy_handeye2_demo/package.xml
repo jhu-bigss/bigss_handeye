@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>easy_handeye2_demo</name>
+  <version>0.5.0</version>
+  <description>Playground for a hand-eye calibration with easy_handeye2, no hardware required.</description>
+  <maintainer email="liushuya7@gmail.com">Joshua Liu</maintainer>
+  <author email="esposito@imfusion.com">Marco Esposito</author>
+  <license>BSD</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <exec_depend>control-msgs</exec_depend>
+  <exec_depend>control-toolbox</exec_depend>
+  <exec_depend>controller-manager</exec_depend>
+  <exec_depend>gripper-controllers</exec_depend>
+  <exec_depend>joint-state-broadcaster</exec_depend>
+  <exec_depend>joint-state-controller</exec_depend>
+  <exec_depend>joint-state-publisher</exec_depend>
+  <exec_depend>joint-state-publisher-gui</exec_depend>
+  <exec_depend>joint-trajectory-controller</exec_depend>
+  <exec_depend>moveit</exec_depend>
+  <exec_depend>moveit-resources-panda-moveit-config</exec_depend>
+  <exec_depend>moveit-runtime</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
