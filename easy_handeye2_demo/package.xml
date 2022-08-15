@@ -18,18 +18,17 @@
   <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>
 
-  <exec_depend>control-msgs</exec_depend>
-  <exec_depend>control-toolbox</exec_depend>
-  <exec_depend>controller-manager</exec_depend>
-  <exec_depend>gripper-controllers</exec_depend>
-  <exec_depend>joint-state-broadcaster</exec_depend>
-  <exec_depend>joint-state-controller</exec_depend>
-  <exec_depend>joint-state-publisher</exec_depend>
-  <exec_depend>joint-state-publisher-gui</exec_depend>
-  <exec_depend>joint-trajectory-controller</exec_depend>
+  <exec_depend>control_msgs</exec_depend>
+  <exec_depend>control_toolbox</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>gripper_controllers</exec_depend>
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>joint_trajectory_controller</exec_depend>
   <exec_depend>moveit</exec_depend>
-  <exec_depend>moveit-resources-panda-moveit-config</exec_depend>
-  <exec_depend>moveit-runtime</exec_depend>
+  <exec_depend>ur_moveit_config</exec_depend>
+  <exec_depend>ur_description</exec_depend>
 
   <export>
     <build_type>ament_python</build_type>
