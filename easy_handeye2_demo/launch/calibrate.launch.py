@@ -12,8 +12,8 @@ def generate_launch_description():
     arg_eye_in_hand = DeclareLaunchArgument('eye_in_hand')
     arg_tracking_base_frame = DeclareLaunchArgument('tracking_base_frame', default_value='tracking_origin')
     arg_tracking_marker_frame = DeclareLaunchArgument('tracking_marker_frame', default_value='tracking_marker')
-    arg_robot_base_frame = DeclareLaunchArgument('robot_base_frame', default_value='panda_link0')
-    arg_robot_effector_frame = DeclareLaunchArgument('robot_effector_frame', default_value='panda_link8')
+    arg_robot_base_frame = DeclareLaunchArgument('robot_base_frame', default_value='base_link')
+    arg_robot_effector_frame = DeclareLaunchArgument('robot_effector_frame', default_value='wrist_3_link')
 
     name = PythonExpression(['"easy_handeye2_demo_eih" if "true" == "',
                              LaunchConfiguration('eye_in_hand'),
@@ -32,7 +32,7 @@ def generate_launch_description():
 
     incl_easy_handeye_calibrate = IncludeLaunchDescription(PythonLaunchDescriptionSource(
         os.path.join(get_package_share_directory('easy_handeye2'), 'launch', 'calibrate.launch.py')),
-        condition=IfCondition(LaunchConfiguration('eye_in_hand')),
+        # condition=IfCondition(LaunchConfiguration('eye_in_hand')),
         launch_arguments={
             'name': name,
             'eye_in_hand': LaunchConfiguration('eye_in_hand'),

@@ -30,46 +30,46 @@ class TrackingSimulator(rclpy.node.Node):
         super().__init__('tracking_simulator_node')
 
         # declare and read parameters
-        self.declare_parameter('eye_in_hand')
+        self.declare_parameter('eye_in_hand', rclpy.Parameter.Type.BOOL)
 
-        self.declare_parameter('robot_base_frame')
-        self.declare_parameter('robot_effector_frame')
-        self.declare_parameter('tracking_base_frame')
-        self.declare_parameter('tracking_marker_frame')
+        self.declare_parameter('robot_base_frame', rclpy.Parameter.Type.STRING)
+        self.declare_parameter('robot_effector_frame', rclpy.Parameter.Type.STRING)
+        self.declare_parameter('tracking_base_frame', rclpy.Parameter.Type.STRING)
+        self.declare_parameter('tracking_marker_frame', rclpy.Parameter.Type.STRING)
 
-        self.declare_parameter('frequency')
-        self.declare_parameter('translation_noise_stdev')
-        self.declare_parameter('rotation_noise_stdev')
+        self.declare_parameter('frequency', rclpy.Parameter.Type.DOUBLE)
+        self.declare_parameter('translation_noise_stdev', rclpy.Parameter.Type.DOUBLE)
+        self.declare_parameter('rotation_noise_stdev', rclpy.Parameter.Type.DOUBLE)
 
-        self.declare_parameter('base_to_tracking')
-        self.declare_parameter('hand_to_tracking')
+        self.declare_parameter('base_to_tracking', rclpy.Parameter.Type.STRING)
+        self.declare_parameter('hand_to_tracking', rclpy.Parameter.Type.STRING)
 
-        self.is_eye_in_hand = self.get_parameter('eye_in_hand').get_parameter_value().bool_value
+        self.is_eye_in_hand = self.get_parameter('eye_in_hand').value
 
-        self.robot_base_frame = self.get_parameter('robot_base_frame').get_parameter_value().string_value
-        self.robot_effector_frame = self.get_parameter('robot_effector_frame').get_parameter_value().string_value
-        self.tracking_base_frame = self.get_parameter('tracking_base_frame').get_parameter_value().string_value
-        self.tracking_marker_frame = self.get_parameter('tracking_marker_frame').get_parameter_value().string_value
+        self.robot_base_frame = self.get_parameter('robot_base_frame').value
+        self.robot_effector_frame = self.get_parameter('robot_effector_frame').value
+        self.tracking_base_frame = self.get_parameter('tracking_base_frame').value
+        self.tracking_marker_frame = self.get_parameter('tracking_marker_frame').value
         self.CAMERA_DUMMY_FRAME = self.tracking_base_frame + '_gt'
         self.MARKER_DUMMY_FRAME = self.tracking_marker_frame + '_gt'
 
-        self.frequency = self.get_parameter('frequency').get_parameter_value().integer_value
-        self.transl_noise = self.get_parameter('translation_noise_stdev').get_parameter_value().double_value
-        self.rot_noise = self.get_parameter('rotation_noise_stdev').get_parameter_value().double_value
+        self.frequency = self.get_parameter('frequency').value
+        self.transl_noise = self.get_parameter('translation_noise_stdev').value
+        self.rot_noise = self.get_parameter('rotation_noise_stdev').value
 
         if self.is_eye_in_hand:
             ground_truth_calibration_transformation = self.parse_transformation(
-                self.get_parameter('hand_to_tracking').get_parameter_value().string_value)
+                self.get_parameter('hand_to_tracking').value)
             arbitrary_marker_placement_transformation = self.parse_transformation(
-                self.get_parameter('base_to_tracking').get_parameter_value().string_value)
+                self.get_parameter('base_to_tracking').value)
 
             self.calibration_origin_frame = self.robot_effector_frame
             self.marker_placement_origin_frame = self.robot_base_frame
         else:
             ground_truth_calibration_transformation = self.parse_transformation(
-                self.get_parameter('base_to_tracking').get_parameter_value().string_value)
+                self.get_parameter('base_to_tracking').value)
             arbitrary_marker_placement_transformation = self.parse_transformation(
-                self.get_parameter('hand_to_tracking').get_parameter_value().string_value)
+                self.get_parameter('hand_to_tracking').value)
 
             self.calibration_origin_frame = self.robot_base_frame
             self.marker_placement_origin_frame = self.robot_effector_frame
