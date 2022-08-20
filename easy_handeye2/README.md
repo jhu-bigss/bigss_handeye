@@ -1,5 +1,13 @@
 # easy_handeye2
 
+## Dependencies
+
+```bash
+pip install transforms3d
+```
+
+## Run
+
 Launch the following:
 
 ```bash
