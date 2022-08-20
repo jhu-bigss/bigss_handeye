@@ -17,7 +17,7 @@ def generate_launch_description():
     arg_robot_base_frame = DeclareLaunchArgument('robot_base_frame', default_value='base_link')
     arg_robot_effector_frame = DeclareLaunchArgument('robot_effector_frame', default_value='wrist_3_link')
 
-    run_move_group_launch = IncludeLaunchDescription(
+    incl_move_group_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('easy_handeye2_demo'), 'launch/run_move_group.launch.py')))
 
@@ -49,6 +49,6 @@ def generate_launch_description():
         arg_tracking_marker_frame,
         arg_robot_base_frame,
         arg_robot_effector_frame,
-        run_move_group_launch,
+        incl_move_group_launch,
         node_tracking
     ])

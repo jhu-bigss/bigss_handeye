@@ -32,7 +32,6 @@ def generate_launch_description():
 
     incl_easy_handeye_calibrate = IncludeLaunchDescription(PythonLaunchDescriptionSource(
         os.path.join(get_package_share_directory('easy_handeye2'), 'launch', 'calibrate.launch.py')),
-        # condition=IfCondition(LaunchConfiguration('eye_in_hand')),
         launch_arguments={
             'name': name,
             'eye_in_hand': LaunchConfiguration('eye_in_hand'),

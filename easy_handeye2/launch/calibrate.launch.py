@@ -13,12 +13,12 @@ def generate_launch_description():
     arg_robot_base_frame = DeclareLaunchArgument('robot_base_frame')
     arg_robot_effector_frame = DeclareLaunchArgument('robot_effector_frame')
 
-    node_dummy_calib_eih = Node(package='tf2_ros', executable='static_transform_publisher', name='dummy_publisher',
+    node_dummy_calib_eih = Node(package='tf2_ros', executable='static_transform_publisher', name='dummy_tf_publisher',
                                 condition=IfCondition(LaunchConfiguration('eye_in_hand')),
                                 arguments=f'0 0 0.1 0 0 0 1'.split(' ') + [LaunchConfiguration('robot_effector_frame'),
                                                                            LaunchConfiguration('tracking_base_frame')])
 
-    node_dummy_calib_eob = Node(package='tf2_ros', executable='static_transform_publisher', name='dummy_publisher',
+    node_dummy_calib_eob = Node(package='tf2_ros', executable='static_transform_publisher', name='dummy_tf_publisher',
                                 condition=UnlessCondition(LaunchConfiguration('eye_in_hand')),
                                 arguments=f'1 0 0 0 0 0 1'.split(' ') + [LaunchConfiguration('robot_base_frame'),
                                                                          LaunchConfiguration('tracking_base_frame')])
